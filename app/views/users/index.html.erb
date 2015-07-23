@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Business</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% start_time = Time.now %>
+    <% @users.each_with_index do |user,idx| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.business %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% end_time = Time.now %>
+
+    <h1><%= end_time - start_time %></h1>
+
+  </tbody>
+</table>
+
+<ul class="my-numbers">
+  <li><a href="">3</a></li>
+  <li><a href="">4</a></li>
+  <li><a href="">5</a></li>
+  <li><a href="">6</a></li>
+  <li><a href="">7</a></li>
+</ul>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
